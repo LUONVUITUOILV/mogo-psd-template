@@ -1,0 +1,112 @@
+mixin menuLink(title, href="#")
+	li.header-menu-item
+		a.header-menu-link(href=href)= title
+
+mixin headerBottomItem(number, title)
+	.header-bottom-item
+		span.header-bottom-number= number
+		span.header-bottom-text= title
+
+mixin blockBox(caption, title, desc)
+	.block-box
+		h3.block-box-caption= caption
+		h2.block-box-heading= title
+		if desc
+			p.block-box-desc= desc
+
+mixin aboutItem(src, iconClass, title, alt= "")
+	.about-item
+		img.about-image(src= src, alt = alt)
+		.about-content
+			i.about-icon(class= iconClass)
+			span.about-title= title
+
+mixin serviceItem(src, title, desc)
+	.service-item
+		img.service-item-icon(src= src)
+		.service-item-info
+			h3.service-item-title= title
+			p.service-item-desc= desc
+
+mixin wedoItem(src, title, desc, active = "")
+	.wedo-item(class= active)
+		.wedo-item-header
+			img.wedo-item-icon(src= src, alt="")
+			h3.wedo-item-title= title
+			i.fal.fa-angle-down.wedo-item-arrow
+		.wedo-item-content
+			.wedo-item-text= desc
+
+mixin teamSocial(facebook= "#", twitter= "#", pinterest= "#", instagram= "#")
+	ul.team-social 
+		li.team-social-item
+			a.team-social-link(href= facebook)
+				i.fab.fa-facebook-f
+		li.team-social-item
+			a.team-social-link(href= twitter)
+				i.fab.fa-twitter
+		li.team-social-item
+			a.team-social-link(href= pinterest)
+				i.fab.fa-pinterest
+		li.team-social-item
+			a.team-social-link(href= instagram)
+				i.fab.fa-instagram
+
+
+mixin teamItem(src = "./images/img-team1.png", name= "Christopher John", position= "Frontend Developer")
+	.team-item 
+		.team-main
+			img.team-image(src= src)
+			.team-content 
+				if block 
+					block
+		.team-info
+			h3.team-name= name	
+			span.team-position= position
+
+mixin workItem(src= "./images/img-work1.png",full= "", icon= "./images/img-work-icon.png", title= "Creatively Designed", desc= "Lorem ipsum dolor sit")
+	.work-item(class= full)
+		img.work-image(src= src)
+		.work-content 	
+			img.work-icon(src= icon)
+			h3.work-title= title
+			span.work-desc.text.text--light= desc
+
+mixin peopleItem(src= "./images/img-pepple1.png", name= "LV",job= "Frontend Developer", desc= "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+	li.people-item
+		img.people-avatar(src= src)
+		.people-info
+			h3.people-name= name
+			span.people-job.text.text--light= jpb
+			p.people-desc.text.text--normal= desc
+
+mixin storyItem(src= "./images/img-blog1.png", dateNumber= 15, dateText= "Jan", title= " Lorem ipsum dolor, sit amet consectetur adipisicing elit.", desc= "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", views= 1000, comments = 100)
+	li.story-item
+		.story-media
+			img.story-image(src= src)
+			.story-date
+				span.story-date-number= dateNumber
+				span.story-date-text.text.text--light= dateText
+		h3.story-title= title
+		.story-desc.text.text--normal
+			p.story-desc-inner= desc
+		.story-meta
+			.story-meta-item 
+				i.fa.fa-eye.story-meta-icon
+				span.story-meta-number.text= views
+			.story-meta-item 
+				i.fa.fa-comment-dots.story-meta-icon
+				span.story-meta-number.text= comments
+	
+mixin quoteItem(src= "./images/img-quote.png", type = false, desc= "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, maxime cum sed, neque quia nulla culpa suscipit, inventore autem porro laboriosam. Sequi fugit voluptatem dolorem autem perspiciatis debitis, ratione accusantium!", author= "LV")
+	.quote-item
+		if type== false
+			.quote-icon
+				img(src= src)
+		else 
+			img(src= src).quote-image
+		.quote-info
+			p.quote-desc= desc
+			span.quote-author= author
+
+
